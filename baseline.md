@@ -104,3 +104,56 @@ ENV=dev python3.9 santa_workshop/manage.py runserver
 
 
 # Подключаем не-public PostgreSQL-схемы
+
+**Главный вопрос**: можно ли прописать схему (через роутер или в db_name) и навсегда забыть об этом?
+
+
+**Ответ**: [нет](https://stackoverflow.com/questions/35609509/django-migrations-with-multiple-databases) 😔
+
+Действительно, если не указать ключ `--database`, то `manage.py migrate` всегда будет использовать дефолтную базу. [Пруф](https://docs.djangoproject.com/en/3.1/topics/db/multi-db/#synchronizing-your-databases)
+
+
+<br><br><br><br><br><br>
+
+
+# Способы наследования моделей
+
+1. На основе абстрактной модели:
+
+```python
+class Elf(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+
+    class Meta:
+        abstact = True
+
+
+class Courier(Elf):
+    country = models.CharField(max_length=150)
+
+    class Meta:
+        db_table = 'couriers'
+```
+
+Цель: не дублировать поля и логику в методах.
+
+2. Расширение исходной модели:
+
+```python
+class Elf(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+
+    class Meta:
+        db_table = 'elves'
+
+
+class Courier(Elf):
+    country = models.CharField(max_length=150)
+
+    class Meta:
+        db_table = 'couriers'
+```
+
+Цель: работать и с обобщающей сущностью, и с разновидностями.
