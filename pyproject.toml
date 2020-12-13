@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "webinar1.django"
+version = "0.1.0"
+description = ""
+authors = ["hell-io <hell.io.julz@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.1.4"
+psycopg2-binary = "^2.8.6"
+python-dotenv = "^0.15.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
