@@ -13,7 +13,7 @@ init:
 install:
 	poetry install
 
-setup: init activate install
+setup: init install
 
 db:
 	mkdir -p data
