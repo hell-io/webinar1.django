@@ -25,5 +25,3 @@ INSERT INTO operational.behavior_records (id,"action",child_id) VALUES
 	 ('deef0ff4-6241-4def-b60b-3a7e678e4ca0','25b061c3-62e5-4b3d-b4c8-279c356e6501','Olya'),
 	 ('b44e6443-a64a-4f51-9741-6b3339e3f9ac','5d6b9e61-0aca-42fb-b208-5c41364a2476','Sven'),
 	 ('f824e500-8cd7-4baa-8fb0-25946e98069e','e9d31b06-c268-4061-8c8a-ccb6982a9623','Ingrid');
-     
-         

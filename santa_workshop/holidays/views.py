@@ -6,10 +6,11 @@ from django.shortcuts import render
 
 
 def countdown(request: HttpRequest) -> HttpResponse:
+    raise Exception
     return render(
         request, 
         'countdown.html',
         context={
             'next_holidays': datetime.datetime(datetime.datetime.today().year + 1, 1, 1, 0, 0, 0)
-         }
+        }
     )
